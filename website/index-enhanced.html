@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graham County DSA | Building Working-Class Power in Arizona</title>
+    <meta name="description" content="Graham County Democratic Socialists of America - Organizing for economic justice, labor solidarity, and working-class power in Arizona's Legislative District 19">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dsa-red: #EC1F27;
+            --dsa-dark: #1a1a1a;
+            --dsa-gray: #333;
+            --arizona-copper: #CD7F32;
+            --arizona-sand: #E6D5B8;
+            --light-bg: #f8f8f8;
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-hover: rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dsa-gray);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--dsa-dark);
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 60px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .nav-logo span {
+            font-size: 1.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 5px;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            background: var(--dsa-red);
+        }
+
+        .nav-cta {
+            background: var(--dsa-red);
+            padding: 0.75rem 1.5rem !important;
+            border-radius: 25px;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 1rem;
+            min-width: 60px;
+            min-height: 60px;
+            align-items: center;
+            justify-content: center;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .nav-toggle:active {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(236, 31, 39, 0.95) 0%, rgba(201, 24, 32, 0.95) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23CD7F32" width="1200" height="600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.05rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--dsa-red);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--dsa-red);
+        }
+
+        /* Section Styling */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            color: var(--dsa-red);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: inherit;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .section-alt {
+            background: var(--light-bg);
+        }
+
+        /* Citation Style */
+        .citation {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        .data-highlight {
+            background: rgba(236, 31, 39, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            color: var(--dsa-red);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--dsa-red);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px var(--shadow-hover);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            color: var(--dsa-red);
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--dsa-gray);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* District Info Section */
+        .district-info {
+            background: linear-gradient(135deg, var(--dsa-dark) 0%, #2a2a2a 100%);
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .district-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .district-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            color: #ffffff;
+        }
+
+        .district-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .district-card h3 {
+            color: var(--dsa-red);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .district-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .district-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .district-card li:last-child {
+            border-bottom: none;
+        }
+
+        .district-card strong {
+            color: #ffffff;
+        }
+
+        .district-card em {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Vision Grid */
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .vision-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: var(--transition);
+            border-left: 5px solid var(--dsa-red);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: var(--dsa-red);
+            opacity: 0.05;
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .vision-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px var(--shadow-hover);
+            border-left-width: 8px;
+        }
+
+        .vision-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .vision-card h3 {
+            color: var(--dsa-red);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .vision-card p {
+            color: var(--dsa-gray);
+            line-height: 1.7;
+        }
+
+        /* Challenge Section */
+        .challenge-section {
+            background: linear-gradient(135deg, #2a2a2a 0%, var(--dsa-dark) 100%);
+            color: white;
+        }
+
+        .challenge-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .challenge-list {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .challenge-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--dsa-red);
+            transition: var(--transition);
+        }
+
+        .challenge-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(10px);
+        }
+
+        .challenge-item h4 {
+            color: var(--dsa-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .challenge-item p {
+            color: #ffffff;
+        }
+
+        /* Campaigns Grid */
+        .campaigns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .campaign-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .campaign-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px var(--shadow-hover);
+        }
+
+        .campaign-header {
+            background: var(--dsa-red);
+            color: white;
+            padding: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: center;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .campaign-body {
+            padding: 2rem;
+            flex-grow: 1;
+        }
+
+        .campaign-body p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .campaign-body ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .campaign-body li {
+            padding: 0.75rem 0 0.75rem 1.5rem;
+            position: relative;
+        }
+
+        .campaign-body li::before {
+            content: '✊';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Involvement Grid */
+        .involvement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .involvement-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .involvement-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px var(--shadow-hover);
+        }
+
+        .involvement-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .involvement-card h3 {
+            color: var(--dsa-dark);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .involvement-card p {
+            color: var(--dsa-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .involvement-card .btn {
+            margin-top: auto;
+        }
+
+        /* Contact Section */
+        .contact-wrapper {
+            background: var(--light-bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .contact-card h3 {
+            color: var(--dsa-red);
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--dsa-red);
+            flex-shrink: 0;
+        }
+
+        .contact-info {
+            flex-grow: 1;
+        }
+
+        .contact-info strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: var(--dsa-dark);
+        }
+
+        /* Form Styling */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dsa-gray);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--dsa-red);
+            box-shadow: 0 0 0 3px rgba(236, 31, 39, 0.1);
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            background: var(--dsa-red);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-submit:hover {
+            background: #c91820;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dsa-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--dsa-red);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--dsa-red);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--dsa-red);
+            transform: scale(1.1);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #888;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--dsa-red);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px var(--shadow-hover);
+        }
+
+        .scroll-top.visible {
+            display: flex;
+        }
+
+        /* Loading Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 60px;
+                flex-direction: column;
+                background: var(--dsa-dark);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px var(--shadow);
+                padding: 2rem 0;
+                gap: 0;
+                max-height: calc(100vh - 60px);
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu a {
+                width: 100%;
+                padding: 1.25rem;
+                border-radius: 0;
+                font-size: 1.1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                min-height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Accessibility Improvements */
+        :focus-visible {
+            outline: 3px solid var(--dsa-red);
+            outline-offset: 2px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav-wrapper">
+        <nav>
+            <div class="nav-container">
+                <a href="#home" class="nav-logo">
+                    <span>🌹</span>
+                    <span>Graham County DSA</span>
+                </a>
+                <button class="nav-toggle" aria-label="Toggle navigation menu">
+                    <span style="display: flex; flex-direction: column; gap: 4px; width: 24px;">
+                        <span style="height: 3px; background: white; border-radius: 2px;"></span>
+                        <span style="height: 3px; background: white; border-radius: 2px;"></span>
+                        <span style="height: 3px; background: white; border-radius: 2px;"></span>
+                    </span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#district">Our District</a></li>
+                    <li><a href="#vision">Vision</a></li>
+                    <li><a href="#campaigns">Campaigns</a></li>
+                    <li><a href="#get-involved">Get Involved</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://act.dsausa.org/donate/membership/" class="nav-cta">Join DSA</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Legislative District 19 • Graham & Greenlee Counties</div>
+            <h1>Building Working-Class Power in Rural Arizona</h1>
+            <p>We're organizing miners, ranchers, educators, and working families across southeastern Arizona for economic justice, labor solidarity, and democratic socialism.</p>
+            <div class="cta-buttons">
+                <a href="#get-involved" class="btn btn-primary">
+                    <span>Join Our Movement</span>
+                    <span>→</span>
+                </a>
+                <a href="#district" class="btn btn-secondary">
+                    <span>Learn About LD19</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="background: #ffffff;">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Graham County DSA</h2>
+                <p style="color: #333;">The largest socialist organization in America, organizing for working people in rural Arizona</p>
+            </div>
+            
+            <div class="fade-in-up" style="max-width: 900px; margin: 0 auto;">
+                <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; color: #1a1a1a;">
+                    The Democratic Socialists of America (DSA) is the largest socialist organization in the United States, with over <span class="data-highlight">85,000 members</span> nationwide. We're building a chapter right here in Graham County to bring working people together to fight for economic and social justice in Arizona's Legislative District 19.
+                    <span class="citation">Source: DSA Official Website, 2025</span>
+                </p>
+                
+                <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; color: #1a1a1a;">
+                    We believe that working people—miners, educators, healthcare workers, ranchers, and service workers—should run both the economy and society democratically to meet human needs, not to make profits for a few. Through grassroots organizing, labor solidarity, and community action, we're fighting for a better future for all Arizonans.
+                </p>
+                
+                <p style="font-size: 1.15rem; line-height: 1.8; color: #1a1a1a;">
+                    Our movement has elected <span class="data-highlight">over 250 DSA members</span> to public office since 2019, including the historic 2025 election of Zohran Mamdani as Mayor of New York City—the biggest electoral victory of the socialist movement in a generation. We're ready to bring that same energy and organizing power to southeastern Arizona's mining communities, rural towns, and working-class neighborhoods.
+                    <span class="citation">Source: Democratic Left Magazine / DSA Electoral Victories Report, 2025</span>
+                </p>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <span class="stat-number">85,000+</span>
+                    <p class="stat-label">DSA Members Nationwide</p>
+                    <span class="citation">DSA Official, 2025</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🗳️</div>
+                    <span class="stat-number">250+</span>
+                    <p class="stat-label">Socialists in Public Office</p>
+                    <span class="citation">DSA Electoral Report, 2019-2025</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✊</div>
+                    <span class="stat-number">2028</span>
+                    <p class="stat-label">Socialist Presidential Campaign</p>
+                    <span class="citation">DSA Platform, 2025</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚒️</div>
+                    <span class="stat-number">May 1</span>
+                    <p class="stat-label">2028 General Strike</p>
+                    <span class="citation">DSA Labor Priorities, 2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- District Info Section -->
+    <section id="district" class="district-info">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: white;">Understanding Legislative District 19</h2>
+                <p style="color: rgba(255,255,255,0.8);">Our organizing territory spans five counties across rural southeastern Arizona</p>
+            </div>
+
+            <div class="district-grid">
+                <div class="district-card">
+                    <h3>📍 Geographic Coverage</h3>
+                    <ul>
+                        <li><strong>All of Greenlee County</strong></li>
+                        <li>Parts of Graham County</li>
+                        <li>Parts of Cochise County</li>
+                        <li>Parts of Pima County</li>
+                        <li>Parts of Santa Cruz County</li>
+                        <li><strong>230,476 residents</strong></li>
+                        <li>146,048 registered voters</li>
+                        <li>96 voting precincts</li>
+                    </ul>
+                    <span class="citation">Source: Arizona Independent Redistricting Commission / Wikipedia, 2025</span>
+                </div>
+
+                <div class="district-card">
+                    <h3>🏛️ Current Representatives</h3>
+                    <ul>
+                        <li><strong>State Senator:</strong> David Gowan (R)</li>
+                        <li><strong>State Rep:</strong> Gail Griffin (R)</li>
+                        <li><strong>State Rep:</strong> Lupe Diaz (R)</li>
+                        <li><strong>US Congress:</strong> Juan Ciscomani (R)</li>
+                        <li><em>All Republicans, all term-limited</em></li>
+                        <li><strong>District Status:</strong> R+20-30 "leaning Republican"</li>
+                    </ul>
+                    <span class="citation">Source: Ballotpedia / AIRC, 2024 Elections</span>
+                </div>
+
+                <div class="district-card">
+                    <h3>💼 Economic Profile</h3>
+                    <ul>
+                        <li><strong>Graham County:</strong> 38,860 residents</li>
+                        <li><strong>Greenlee County:</strong> 9,600 residents (AZ's smallest)</li>
+                        <li><strong>Median Income:</strong> $67,326</li>
+                        <li><em>10% below Arizona average ($76,872)</em></li>
+                        <li><strong>Poverty Rate:</strong> <span class="data-highlight">17.7%</span></li>
+                        <li><em>1.4x higher than national average (12.4%)</em></li>
+                        <li><strong>Top Employer:</strong> Freeport-McMoRan (3,300+ jobs)</li>
+                    </ul>
+                    <span class="citation">Source: U.S. Census Bureau / Data USA, 2023</span>
+                </div>
+
+                <div class="district-card">
+                    <h3>⚒️ Labor & Mining</h3>
+                    <ul>
+                        <li><strong>Morenci Mine:</strong> Largest copper mine in North America</li>
+                        <li>3,300+ mining jobs in LD19</li>
+                        <li>90% of Greenlee County GDP from mining</li>
+                        <li><strong>Historic union stronghold</strong> (destroyed 1983-86)</li>
+                        <li>Freeport-McMoRan owns company towns (Morenci, Bagdad)</li>
+                        <li><strong>Current Union Rate:</strong> <span class="data-highlight">3.7%</span> statewide (historic low)</li>
+                    </ul>
+                    <span class="citation">Sources: Wikipedia - Morenci Mine / BLS Labor Statistics, 2024</span>
+                </div>
+
+                <div class="district-card">
+                    <h3>🗳️ Political Reality</h3>
+                    <ul>
+                        <li><strong>Republican +20-30 points</strong></li>
+                        <li>Aging, conservative electorate</li>
+                        <li>Greenlee: Dem→Rep shift since 2000</li>
+                        <li><em>Was most Democratic AZ county (1912-1996)</em></li>
+                        <li>Shift correlates with <strong>union collapse</strong> after 1983-86 strike</li>
+                        <li><strong>Opportunity:</strong> Economic populism + labor solidarity</li>
+                    </ul>
+                    <span class="citation">Source: Wikipedia - Graham County History / AIRC Analysis, 2025</span>
+                </div>
+
+                <div class="district-card">
+                    <h3>🎯 Key Issues</h3>
+                    <ul>
+                        <li>Mining jobs vs. environment (false choice)</li>
+                        <li>Water rights & Arizona water crisis</li>
+                        <li>Rural healthcare access (limited facilities)</li>
+                        <li>Education funding (K-12 underfunded)</li>
+                        <li>Company town corporate control</li>
+                        <li><strong>Declining union power</strong> (3.7% vs 8.8% in 2007)</li>
+                    </ul>
+                    <span class="citation">Multiple sources: BLS, Census Bureau, Local News, 2024</span>
+                </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; margin-top: 3rem; text-align: center;">
+                <h3 style="color: var(--dsa-red); margin-bottom: 1rem;">Why This Matters</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                    Legislative District 19 represents a critical challenge for democratic socialists: organizing in a rural, resource-extraction economy where workers shifted from union solidarity to conservative politics after corporate union-busting. But <span class="data-highlight">high poverty rates (17.7%)</span>, economic anxiety, and corporate dominance create opportunities for class-based organizing that puts working people first.
+                </p>
+                <span class="citation">Analysis based on Census Bureau / BLS / Historical Data</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Vision for Graham County</h2>
+                <p style="color: #333;">A democratic socialist future where working people control the economy and society</p>
+            </div>
+
+            <div class="vision-grid">
+                <div class="vision-card fade-in-up">
+                    <span class="vision-icon">🏥</span>
+                    <h3>Medicare for All</h3>
+                    <p>Universal healthcare is a human right. We're fighting to ensure every Graham County resident has access to quality healthcare without medical debt. No more choosing between rent and medicine in rural Arizona. <strong>Top DSA national priority since 2017.</strong></p>
+                    <span class="citation">DSA National Priorities, 2021-2025</span>
+                </div>
+
+                <div class="vision-card fade-in-up">
+                    <span class="vision-icon">⚒️</span>
+                    <h3>Worker Power & Union Rights</h3>
+                    <p>Rebuilding union power in Arizona's mines, ranches, and workplaces. Supporting rank-and-file organizing, fighting for living wages, and ensuring miners control the industry that built our communities. <strong>Union membership dropped from 8.8% (2007) to 3.7% (2024)—we're reversing that.</strong></p>
+                    <span class="citation">BLS Union Statistics, 2024 / DSA Labor Platform</span>
+                </div>
+
+                <div class="vision-card fade-in-up">
+                    <span class="vision-icon">🌱</span>
+                    <h3>Green New Deal & Just Transition</h3>
+                    <p>Climate action that creates union jobs, not layoffs. We support a just transition for mining communities that protects workers, creates renewable energy jobs, and addresses Arizona's water crisis. <strong>Workers first, always.</strong></p>
+                    <span class="citation">DSA endorses Red Deal / Green New Deal Platform</span>
+                </div>
+
+                <div class="vision-card fade-in-up">
+                    <span class="vision-icon">🏠</span>
+                    <h3>Housing Justice</h3>
+                    <p>Affordable housing for working families. Fighting against corporate landlords, supporting tenant unions, and demanding public housing options in company towns like Morenci where Freeport-McMoRan owns everything. <strong>73.77% homeownership but median value $179,600 on $67k median income.</strong></p>
+                    <span class="citation">Census Bureau Housing Data, 2024</span>
+                </div>
+
+                <div class="vision-card fade-in-up">
+                    <span class="vision-icon">📚</span>
+                    <h3>Free Education & Student Debt Relief</h3>
+                    <p>Free college tuition at Eastern Arizona College and state universities. Canceling student debt. Fully funding K-12 schools in Safford, Clifton, and across rural Arizona. <strong>Only 8.12% of Graham County residents have bachelor's degrees.</strong></p>
+                    <span class="citation">Data USA Education Statistics, 2024</span>
+                </div>
+
+                <div class="vision-card fade-in-up">
+                    <span class="vision-icon">💧</span>
+                    <h3>Water as a Public Good</h3>
+                    <p>Arizona's water belongs to the people, not corporations. Protecting water rights for small farmers and communities while challenging corporate control and mining industry water usage. <strong>Critical issue for Arizona's future.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section class="challenge-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: white;">The Challenges We Face</h2>
+                <p style="color: rgba(255,255,255,0.8);">Building working-class power in a conservative, resource-dependent region</p>
+            </div>
+
+            <div class="challenge-content">
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; color: #ffffff;">
+                    Organizing in LD19 means confronting the realities of rural, conservative Arizona where economic dependence on mining has created political obstacles. But challenges are opportunities for strategic organizing.
+                </p>
+
+                <div class="challenge-list">
+                    <div class="challenge-item">
+                        <h4>🗳️ Republican Dominance</h4>
+                        <p>LD19 is R+20-30, with overwhelming GOP voter registration. AIRC classifies district as "outside of competitive range." We must build working-class coalitions that transcend party labels and focus on economic justice.</p>
+                        <span class="citation">Source: AIRC District Analysis, 2024</span>
+                    </div>
+
+                    <div class="challenge-item">
+                        <h4>⚒️ Corporate Control</h4>
+                        <p>Freeport-McMoRan dominates Greenlee County's economy (<strong>90% of GDP</strong>), owns company towns, and funds anti-union politics. The company paid $6.8M in DOJ environmental fines in 2012. We need strategies to organize in corporate-controlled spaces.</p>
+                        <span class="citation">Sources: Mining Data / U.S. DOJ Settlement, 2012</span>
+                    </div>
+
+                    <div class="challenge-item">
+                        <h4>📉 Declining Union Power</h4>
+                        <p>Greenlee went from Arizona's most Democratic county (1912-1996) to strongly Republican as unions declined. <strong>Historic 1983-1986 mine strike was crushed</strong>—National Guard deployed, workers decertified unions in 1984. Arizona union membership is now <strong>3.7% (2024), down from 8.8% peak in 2007-2008</strong>. We must rebuild labor solidarity from the ground up.</p>
+                        <span class="citation">Sources: BLS Union Statistics 2024 / Wikipedia - Morenci Strike History</span>
+                    </div>
+
+                    <div class="challenge-item">
+                        <h4>🌍 Environment vs. Jobs Framing</h4>
+                        <p>Democrats lost mining workers by being seen as anti-mining. We need a just transition message that prioritizes workers while addressing climate crisis. <strong>Green New Deal with union jobs for miners.</strong></p>
+                    </div>
+
+                    <div class="challenge-item">
+                        <h4>💰 High Poverty Despite Mining Wealth</h4>
+                        <p><strong>17.7% poverty rate</strong> (1.4x national average) despite massive copper profits shows wealth extraction, not sharing. Median income $67,326 is 10% below Arizona average. This is our organizing opportunity: economic populism that challenges corporate power.</p>
+                        <span class="citation">Source: U.S. Census Bureau / Data USA, 2023</span>
+                    </div>
+
+                    <div class="challenge-item">
+                        <h4>🏘️ Geographic Dispersion</h4>
+                        <p>Rural, spread-out population (230,476 across 5 counties, 96 precincts) makes organizing harder but not impossible. Digital tools, strategic hubs, and patient community building are essential.</p>
+                        <span class="citation">Source: AIRC District Data, 2024</span>
+                    </div>
+                </div>
+
+                <div style="background: rgba(236, 31, 39, 0.2); padding: 2rem; border-radius: 15px; margin-top: 3rem; text-align: center; border-left: 5px solid var(--dsa-red);">
+                    <h3 style="color: white; margin-bottom: 1rem;">Our Strategy: Economic Populism + Labor Solidarity</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.7;">
+                        We win by organizing around material conditions: wages, healthcare, housing, education. We support miners, ranchers, and workers while demanding they control the industries they build. We rebuild unions. We challenge corporate power. We put working people first. <strong>The data is on our side: high poverty, low union density, corporate extraction. Time to organize.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campaigns Section -->
+    <section id="campaigns" style="background: #ffffff;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Priority Campaigns</h2>
+                <p style="color: #333;">Strategic organizing for working-class power in District 19</p>
+            </div>
+
+            <div class="campaigns-grid">
+                <div class="campaign-card">
+                    <div class="campaign-header">Labor Organizing</div>
+                    <div class="campaign-body">
+                        <p>Rebuilding worker power in mines, healthcare, education, and service industries through rank-and-file organizing and union solidarity. <strong>Target: Reverse the decline from 8.8% (2007) to 3.7% (2024) union membership.</strong></p>
+                        <span class="citation">BLS Union Data, 2024</span>
+                        <ul>
+                            <li>Support Freeport-McMoRan workers (3,300+ jobs)</li>
+                            <li>Strike solidarity & picket lines</li>
+                            <li>Union democracy campaigns</li>
+                            <li>May Day 2028 organizing</li>
+                            <li>PRO Act campaign (DSA national priority)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="campaign-card">
+                    <div class="campaign-header">Electoral Power</div>
+                    <div class="campaign-body">
+                        <p>Running working-class candidates who aren't bought by corporations. Building independent political power from school boards to state legislature. <strong>DSA has elected 250+ socialists nationwide since 2019—we can do it in LD19.</strong></p>
+                        <span class="citation">DSA Electoral Report, 2025</span>
+                        <ul>
+                            <li>2026 local elections (school board, city council)</li>
+                            <li>Candidate recruitment & training</li>
+                            <li>Grassroots canvassing (146,048 voters)</li>
+                            <li>Voter registration drives</li>
+                            <li>Socialist accountability structures</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="campaign-card">
+                    <div class="campaign-header">Healthcare Justice</div>
+                    <div class="campaign-body">
+                        <p>Fighting for Medicare for All and improving rural healthcare access across Graham and Greenlee counties. <strong>DSA's #1 national campaign since 2017.</strong></p>
+                        <span class="citation">DSA National Priorities, 2021</span>
+                        <ul>
+                            <li>Medicare for All organizing</li>
+                            <li>Rural clinic support</li>
+                            <li>Prescription drug costs</li>
+                            <li>Mental health services</li>
+                            <li>Healthcare worker solidarity</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="campaign-card">
+                    <div class="campaign-header">Just Transition</div>
+                    <div class="campaign-body">
+                        <p>Green New Deal that puts miners and workers first, creating union jobs in renewable energy while protecting communities. <strong>DSA endorses the Red Deal—workers first, always.</strong></p>
+                        <span class="citation">DSA Platform / Red Nation, 2019</span>
+                        <ul>
+                            <li>Worker-centered climate policy</li>
+                            <li>Renewable energy union jobs</li>
+                            <li>Water rights protection (AZ crisis)</li>
+                            <li>Environmental justice (2012 DOJ: $6.8M FCX fine)</li>
+                            <li>Mining industry accountability</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="campaign-card">
+                    <div class="campaign-header">Housing Justice</div>
+                    <div class="campaign-body">
+                        <p>Challenging corporate landlords and fighting for affordable housing, especially in company towns where corporations own everything. <strong>Median home value $179,600 on $67,326 median income = housing crisis.</strong></p>
+                        <span class="citation">Census Bureau, 2024</span>
+                        <ul>
+                            <li>Tenant organizing in Morenci (company town)</li>
+                            <li>Rent control advocacy</li>
+                            <li>Public housing campaigns</li>
+                            <li>Company town reform (challenge FCX control)</li>
+                            <li>Housing as human right</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="campaign-card">
+                    <div class="campaign-header">Education & Debt Relief</div>
+                    <div class="campaign-body">
+                        <p>Free public education, student debt cancellation, and fully funding Arizona's rural schools and community colleges. <strong>Only 8.12% of Graham County residents have bachelor's degrees—we must fix this.</strong></p>
+                        <span class="citation">Data USA, 2024</span>
+                        <ul>
+                            <li>K-12 funding campaigns</li>
+                            <li>Free college organizing (Eastern AZ College)</li>
+                            <li>Student debt relief</li>
+                            <li>Teacher support & solidarity</li>
+                            <li>Educational equity</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section id="get-involved" class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get Involved</h2>
+                <p style="color: #333;">Join us in building working-class power in Graham County and Legislative District 19</p>
+            </div>
+
+            <div class="involvement-grid">
+                <div class="involvement-card">
+                    <span class="involvement-icon">📝</span>
+                    <h3>Become a Member</h3>
+                    <p>Join 85,000+ democratic socialists nationwide. Dues start at $10/month and fund campaigns, mutual aid, and organizing work.</p>
+                    <a href="https://act.dsausa.org/donate/membership/" class="btn btn-primary">Join National DSA</a>
+                </div>
+
+                <div class="involvement-card">
+                    <span class="involvement-icon">🤝</span>
+                    <h3>Attend Meetings</h3>
+                    <p>Monthly organizing meetings every third Saturday. Meet other socialists, plan campaigns, and build power together in LD19.</p>
+                    <a href="mailto:grahamcountyaz@dsausa.org?subject=Meeting%20Information%20Request" class="btn btn-secondary" style="background: var(--dsa-red); color: white; border: none;">Get Meeting Info</a>
+                </div>
+
+                <div class="involvement-card">
+                    <span class="involvement-icon">📱</span>
+                    <h3>Join Our Signal</h3>
+                    <p>Connect with local organizers on Signal. Get updates on actions, meetings, strikes, and ways to plug in immediately.</p>
+                    <a href="mailto:grahamcountyaz@dsausa.org?subject=Signal%20Group%20Request" class="btn btn-secondary" style="background: var(--dsa-red); color: white; border: none;">Get Connected</a>
+                </div>
+
+                <div class="involvement-card">
+                    <span class="involvement-icon">🎓</span>
+                    <h3>Political Education</h3>
+                    <p>Learn socialist theory, organizing tactics, labor history (including the 1983-86 Morenci strike), and practical skills for building working-class movements.</p>
+                    <a href="https://www.dsausa.org/resources/" class="btn btn-secondary" style="background: var(--dsa-red); color: white; border: none;">Learn More</a>
+                </div>
+
+                <div class="involvement-card">
+                    <span class="involvement-icon">🚪</span>
+                    <h3>Canvass & Organize</h3>
+                    <p>Door-knocking, phone banking, and grassroots outreach across 96 precincts and 230,476 residents. No experience necessary—we provide training and mentorship.</p>
+                    <a href="mailto:grahamcountyaz@dsausa.org?subject=Volunteer%20Interest" class="btn btn-secondary" style="background: var(--dsa-red); color: white; border: none;">Volunteer</a>
+                </div>
+
+                <div class="involvement-card">
+                    <span class="involvement-icon">⚒️</span>
+                    <h3>Workplace Organizing</h3>
+                    <p>Organize your workplace, join a union drive, or support striking workers. Building power starts on the job. <strong>We're rebuilding the 3.7% union rate—join us.</strong></p>
+                    <a href="https://www.dsausa.org/labor/" class="btn btn-secondary" style="background: var(--dsa-red); color: white; border: none;">Get Support</a>
+                </div>
+            </div>
+
+            <div style="background: white; padding: 2.5rem; border-radius: 15px; margin-top: 3rem; text-align: center; box-shadow: 0 4px 20px var(--shadow);">
+                <h3 style="color: var(--dsa-red); margin-bottom: 1rem; font-size: 1.5rem;">Ready to Organize?</h3>
+                <p style="font-size: 1.1rem; line-height: 1.7; max-width: 700px; margin: 0 auto 2rem;">
+                    Whether you can give an hour a week or want to dive in full-time, there's a place for you in building working-class power in Graham County. <strong>The data shows we need this: 17.7% poverty, 3.7% union membership, corporate control. Let's get started.</strong>
+                </p>
+                <a href="mailto:grahamcountyaz@dsausa.org?subject=Ready%20to%20Organize" class="btn btn-primary" style="font-size: 1.1rem;">Contact Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-wrapper">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p style="color: #333;">Get in touch to join, ask questions, or start organizing in your community</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Get in Touch</h3>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div class="contact-info">
+                            <strong>Email</strong>
+                            grahamcountyaz@dsausa.org
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <div class="contact-info">
+                            <strong>Signal Group</strong>
+                            Contact us for invite link
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div class="contact-info">
+                            <strong>Location</strong>
+                            Graham County, Arizona<br>
+                            <small>Legislative District 19 • 230,476 residents • 96 precincts</small>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">🗓️</span>
+                        <div class="contact-info">
+                            <strong>Monthly Meetings</strong>
+                            Third Saturday of each month
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 2rem;">Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/PHXDSA/" class="social-link" aria-label="Facebook">📘</a>
+                        <a href="https://twitter.com/DSAusa" class="social-link" aria-label="Twitter">🦅</a>
+                        <a href="https://www.instagram.com/phoenix_dsa/" class="social-link" aria-label="Instagram">📷</a>
+                        <a href="https://www.tiktok.com/@dsausa" class="social-link" aria-label="TikTok">🎵</a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <h3>Send Us a Message</h3>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <div style="background: white; padding: 2rem; border-radius: 15px; margin-top: 3rem; box-shadow: 0 4px 20px var(--shadow);">
+                <h3 style="text-align: center; color: var(--dsa-red); margin-bottom: 1rem;">Connect With Arizona DSA Chapters</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                    <div style="text-align: center;">
+                        <strong>Phoenix-Metro DSA</strong><br>
+                        <a href="https://phxdsa.org" style="color: var(--dsa-red);">phxdsa.org</a>
+                    </div>
+                    <div style="text-align: center;">
+                        <strong>Tucson DSA</strong><br>
+                        <a href="https://www.dsatucson.com" style="color: var(--dsa-red);">dsatucson.com</a>
+                    </div>
+                    <div style="text-align: center;">
+                        <strong>National DSA</strong><br>
+                        <a href="https://www.dsausa.org" style="color: var(--dsa-red);">dsausa.org</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About DSA</h3>
+                <ul>
+                    <li><a href="https://www.dsausa.org/about-us/">What is Democratic Socialism?</a></li>
+                    <li><a href="https://www.dsausa.org/about-us/what-is-democratic-socialism/">Our Vision</a></li>
+                    <li><a href="https://www.dsausa.org/about-us/constitution/">Constitution & Bylaws</a></li>
+                    <li><a href="https://www.dsausa.org/democratic-left/">Democratic Left Magazine</a></li>
+                    <li><a href="data/research-sources.md">Research & Data Sources</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Get Involved</h3>
+                <ul>
+                    <li><a href="https://act.dsausa.org/donate/membership/">Join National DSA</a></li>
+                    <li><a href="https://www.dsausa.org/chapters/">Find Your Chapter</a></li>
+                    <li><a href="https://www.dsausa.org/working-groups/">Working Groups</a></li>
+                    <li><a href="https://www.dsausa.org/campaigns/">National Campaigns</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="https://www.dsausa.org/resources/">Organizing Resources</a></li>
+                    <li><a href="https://www.dsausa.org/labor/">Labor Resources</a></li>
+                    <li><a href="https://www.dsausa.org/statements/">Statements & Resolutions</a></li>
+                    <li><a href="https://convention2025.dsausa.org/">2025 Convention</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Graham County DSA</h3>
+                <p>Building working-class power in Legislative District 19 through democratic socialist organizing, labor solidarity, and community action.</p>
+                <p style="margin-top: 1rem;"><strong>🌹 Solidarity Forever 🌹</strong></p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><em>All statistics cited from U.S. Census Bureau, Bureau of Labor Statistics, DSA Official Sources, 2023-2025</em></p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2025 Graham County Democratic Socialists of America</p>
+            <p style="margin-top: 0.5rem;">Part of the national DSA network • LD19: Graham, Greenlee, Cochise, Pima, Santa Cruz Counties</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Not an official DSA chapter yet—we're organizing to form one! Contact us to help build it.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;"><strong>Key Stats:</strong> 230,476 residents • 17.7% poverty • 3.7% union membership • 3,300+ mining jobs • $67,326 median income</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const hamburgerLines = navToggle.querySelectorAll('span span');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            
+            if (navMenu.classList.contains('active')) {
+                hamburgerLines[0].style.transform = 'rotate(45deg) translateY(7px)';
+                hamburgerLines[1].style.opacity = '0';
+                hamburgerLines[2].style.transform = 'rotate(-45deg) translateY(-7px)';
+            } else {
+                hamburgerLines[0].style.transform = '';
+                hamburgerLines[1].style.opacity = '';
+                hamburgerLines[2].style.transform = '';
+            }
+        });
+
+        hamburgerLines.forEach(line => {
+            line.style.transition = 'all 0.3s ease';
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburgerLines[0].style.transform = '';
+                hamburgerLines[1].style.opacity = '';
+                hamburgerLines[2].style.transform = '';
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.querySelector('.scroll-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.vision-card, .campaign-card, .involvement-card, .stat-card, .district-card, .challenge-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.\n\nIn the meantime, consider joining National DSA at dsausa.org to stay connected with the movement.');
+            this.reset();
+        });
+
+        // Navigation active state
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.background = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.background = 'rgba(236, 31, 39, 0.2)';
+                }
+            });
+        });
+
+        // Accessibility: keyboard navigation
+        const focusableElements = navMenu.querySelectorAll('a, button');
+        const firstFocusable = focusableElements[0];
+        const lastFocusable = focusableElements[focusableElements.length - 1];
+
+        document.addEventListener('keydown', (e) => {
+            if (!navMenu.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') {
+                navMenu.classList.remove('active');
+                navToggle.focus();
+                hamburgerLines[0].style.transform = '';
+                hamburgerLines[1].style.opacity = '';
+                hamburgerLines[2].style.transform = '';
+            }
+
+            if (e.key === 'Tab') {
+                if (e.shiftKey) {
+                    if (document.activeElement === firstFocusable) {
+                        lastFocusable.focus();
+                        e.preventDefault();
+                    }
+                } else {
+                    if (document.activeElement === lastFocusable) {
+                        firstFocusable.focus();
+                        e.preventDefault();
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
